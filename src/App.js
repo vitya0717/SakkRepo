@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Sakk from './Sakk';
+import Navbar from './Navbar';
+import { SakkPost } from './SakkPost';
+import { SakkPut } from './SakkPut';
+import { SakkSelect } from './SakkSelect';
+import { DeleteConfirmModal } from './DeleteConfirmModal';
+
 
 function App() {
+  const [sakk, setSakk] = useState([]);
+  const [isFetchPending, setFetchPending] = useState(true)
+  const [selectedSakk, setSelectedSakk] = useState({});
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar sakk={sakk} setSakk={setSakk} setFetchPending={setFetchPending} isFetchPending={isFetchPending} />
+      <Routes>
+        <Route path={"/Sakk"} element={<Sakk sakk={sakk} setSakk={setSakk} setSelectedSakk={setSelectedSakk} setFetchPending={setFetchPending} isFetchPending={isFetchPending} />} />
+        <Route path={"/ujSakk"} element={<SakkPost sakk={sakk} setSakk={setSakk} setFetchPending={setFetchPending} />} />
+        <Route path={"/sakkFrissit/:id"} element={<SakkPut selectedSakk={selectedSakk} setSelectedSakk={setSelectedSakk} setFetchPending={setFetchPending} isFetchPending={isFetchPending} />} />
+        <Route path={"/sakk/:id"} element={<SakkSelect selectedSakk={selectedSakk} setSelectedSakk={setSelectedSakk} />} />
+      </Routes>
+      <DeleteConfirmModal selectedSakk={selectedSakk} setFetchPending={setFetchPending} />
+    </BrowserRouter>
   );
 }
 

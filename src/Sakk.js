@@ -6,7 +6,7 @@ const Sakk = ({ sakk, setSakk, setSelectedSakk, setFetchPending, isFetchPending 
     const navigate = useNavigate();
     const fetchSakk = async () => {
         try {
-            const response = await fetch('http://localhost:3001/chess')
+            const response = await fetch('https://chess.sulla.hu/chess/')
             const data = await response.json()
             setSakk(data)
         } catch (error) {

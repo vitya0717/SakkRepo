@@ -9,7 +9,7 @@ export const SakkSelect = ({ selectedSakk, setSelectedSakk }) => {
     const [isFetchPending, setFetchPending] = React.useState(true)
 
     const fetchData = async () => {
-        await axios.get(`http://localhost:3001/chess/${param.id}`).then(async (response) => {
+        await axios.get(`https://chess.sulla.hu/chess/${param.id}`).then(async (response) => {
             await setSelectedSakk(response.data);
         }).finally(() => setFetchPending(false));
     }

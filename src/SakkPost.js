@@ -32,7 +32,7 @@ export const SakkPost = ({setFetchPending}) => {
                     profile_url: ProfilUrl,
                     world_ch_won: Wins
                 }
-                await axios.post('http://localhost:3001/chess', postData).then(async () => {
+                await axios.post('https://chess.sulla.hu/chess/', postData).then(async () => {
                     await setFetchPending(true);
                     navigate('/Sakk');
                 });

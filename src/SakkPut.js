@@ -73,7 +73,7 @@ export const SakkPut = ({ setFetchPending, selectedSakk, setSelectedSakk }) => {
             profile_url: profilURL
           }
 
-          await axios.put(`http://localhost:3001/chess/${param.id}`, updateData).then(async () => {
+          await axios.put(`https://chess.sulla.hu/chess/${param.id}`, updateData).then(async () => {
             await setFetchPending(true);
             navigate('/Sakk');
           });

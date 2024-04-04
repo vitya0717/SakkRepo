@@ -24,7 +24,7 @@ export const SakkPut = ({ setFetchPending, selectedSakk, setSelectedSakk }) => {
 
   
     const fetchData = async () => {
-      await axios.get(`http://localhost:3001/chess/${param.id}`).then(async (response) => {
+      await axios.get(`https://chess.sulla.hu/chess/${param.id}`).then(async (response) => {
         await setSelectedSakk(response.data);
         setNev(response.data.name);
         setKepURL(response.data.image_url);

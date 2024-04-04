@@ -2,7 +2,7 @@
   "name": "sakkfront",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://myusername.github.io/SakkRepo/",
+  "homepage": "https://vitya0717.github.io/SakkRepo/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

@@ -18,6 +18,7 @@ function App() {
     <BrowserRouter>
       <Navbar sakk={sakk} setSakk={setSakk} setFetchPending={setFetchPending} isFetchPending={isFetchPending} />
       <Routes>
+        <Route path={"/"} element={<Sakk sakk={sakk} setSakk={setSakk} setSelectedSakk={setSelectedSakk} setFetchPending={setFetchPending} isFetchPending={isFetchPending} />} />
         <Route path={"/Sakk"} element={<Sakk sakk={sakk} setSakk={setSakk} setSelectedSakk={setSelectedSakk} setFetchPending={setFetchPending} isFetchPending={isFetchPending} />} />
         <Route path={"/ujSakk"} element={<SakkPost sakk={sakk} setSakk={setSakk} setFetchPending={setFetchPending} />} />
         <Route path={"/sakkFrissit/:id"} element={<SakkPut selectedSakk={selectedSakk} setSelectedSakk={setSelectedSakk} setFetchPending={setFetchPending} isFetchPending={isFetchPending} />} />
